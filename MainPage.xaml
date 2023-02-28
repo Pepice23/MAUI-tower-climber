@@ -5,13 +5,15 @@
              x:Class="MAUI_tower_climber.MainPage">
 
 
-    <Grid>
-        <VerticalStackLayout Spacing="10">
+    
+        <VerticalStackLayout>
             <components:DeveloperConsole />
-            <components:StageDisplay />
-            <components:Battleground/>
-            <components:AttackButton/>
-        </VerticalStackLayout>
-    </Grid>
+            <VerticalStackLayout BackgroundColor="Green">
+                <components:StageDisplay />
+                <components:Battleground />
+                <components:AttackButton />
+            </VerticalStackLayout>
+    </VerticalStackLayout>
+    
     
 </ContentPage>

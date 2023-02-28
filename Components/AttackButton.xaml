@@ -2,7 +2,7 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MAUI_tower_climber.Components.AttackButton">
-    <Grid>
+    
         <VerticalStackLayout Spacing="5"
                              Margin="10"
                              HorizontalOptions="Center"
@@ -12,5 +12,5 @@
                          HeightRequest="100"></ImageButton>
             <Label HorizontalTextAlignment="Center">Attack!</Label>
         </VerticalStackLayout>
-    </Grid>
+    
 </ContentView>
