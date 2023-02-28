@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUI_tower_climber.Components.DeveloperConsole">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <VerticalStackLayout Margin="10"
+                             Spacing="10"
+                             Grid.Row="0"
+                             Grid.Column="0">
+            <Label HorizontalTextAlignment="Center">Time controls:</Label>
+            <HorizontalStackLayout Spacing="5"
+                                   HorizontalOptions="Center">
+                <Button Text="1x"></Button>
+                <Button Text="2x"></Button>
+                <Button Text="4x"></Button>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+
+        <VerticalStackLayout Margin="10"
+                             Spacing="5"
+                             Grid.Row="0"
+                             Grid.Column="1">
+            <Label HorizontalTextAlignment="Center">Total Monster Count:</Label>
+            <Label HorizontalTextAlignment="Center">1</Label>
+        </VerticalStackLayout>
+    </Grid>
+</ContentView>
