@@ -8,11 +8,17 @@
     
         <VerticalStackLayout>
             <components:DeveloperConsole />
-            <VerticalStackLayout BackgroundColor="Green">
+        <Grid>
+            <Image Source="bg_1.png"
+                   Aspect="Fill">
+            </Image>
+            <VerticalStackLayout>
                 <components:StageDisplay />
                 <components:Battleground />
                 <components:AttackButton />
             </VerticalStackLayout>
+        </Grid>
+            
     </VerticalStackLayout>
     
     

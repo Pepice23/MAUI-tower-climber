@@ -7,7 +7,7 @@
                              Margin="10"
                              HorizontalOptions="Center"
                              VerticalOptions="Center">
-            <ImageButton Source="dotnet_bot"
+            <ImageButton Source="attack_button.png"
                          WidthRequest="100"
                          HeightRequest="100"></ImageButton>
             <Label HorizontalTextAlignment="Center">Attack!</Label>

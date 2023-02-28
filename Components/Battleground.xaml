@@ -26,7 +26,7 @@
                        HorizontalTextAlignment="Center"
                        TextColor="Red" />
             </HorizontalStackLayout>
-            <Image Source="dotnet_bot.svg"
+            <Image Source="hero1.jpeg"
                    WidthRequest="100"
                    HeightRequest="100" />
             <HorizontalStackLayout Spacing="5">
@@ -78,7 +78,7 @@
                        HorizontalTextAlignment="Center"
                        TextColor="Red" />
             </HorizontalStackLayout>
-            <Image Source="dotnet_bot.svg"
+            <Image Source="enemy1.jpeg"
                    WidthRequest="100"
                    HeightRequest="100" />
             <VerticalStackLayout Spacing="1"
