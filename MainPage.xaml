@@ -9,9 +9,6 @@
         <VerticalStackLayout>
             <components:DeveloperConsole />
         <Grid>
-            <Image Source="bg_1.png"
-                   Aspect="Fill">
-            </Image>
             <VerticalStackLayout>
                 <components:StageDisplay />
                 <components:Battleground />
