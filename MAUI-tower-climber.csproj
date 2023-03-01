@@ -52,6 +52,12 @@
 	  <None Remove="Resources\Images\bg_1.png" />
 	  <None Remove="Resources\Images\enemy1.jpeg" />
 	  <None Remove="Resources\Images\hero1.jpeg" />
+	  <None Remove="Resources\Images\Heroes\hero2.jpeg" />
+	  <None Remove="Resources\Images\Heroes\hero3.jpeg" />
+	  <None Remove="Resources\Images\Heroes\hero4.jpeg" />
+	  <None Remove="Resources\Images\Heroes\hero5.jpeg" />
+	  <None Remove="Resources\Images\Heroes\hero6.jpeg" />
+	  <None Remove="Resources\Images\Heroes\hero7.jpeg" />
 	  <None Remove="Resources\Images\weapon1.jpeg" />
 	  <None Remove="Resources\Images\weapon10.jpeg" />
 	  <None Remove="Resources\Images\weapon11.jpeg" />
@@ -99,6 +105,12 @@
 	  <MauiImage Include="Resources\Images\Backgrounds\bg_1.png" />
 	  <MauiImage Include="Resources\Images\Enemies\enemy1.jpeg" />
 	  <MauiImage Include="Resources\Images\Heroes\hero1.jpeg" />
+	  <MauiImage Include="Resources\Images\Heroes\hero2.jpeg" />
+	  <MauiImage Include="Resources\Images\Heroes\hero3.jpeg" />
+	  <MauiImage Include="Resources\Images\Heroes\hero4.jpeg" />
+	  <MauiImage Include="Resources\Images\Heroes\hero5.jpeg" />
+	  <MauiImage Include="Resources\Images\Heroes\hero6.jpeg" />
+	  <MauiImage Include="Resources\Images\Heroes\hero7.jpeg" />
 	  <MauiImage Include="Resources\Images\UI\attack_button.png" />
 	  <MauiImage Include="Resources\Images\Weapons\weapon1.jpeg" />
 	  <MauiImage Include="Resources\Images\Weapons\weapon10.jpeg" />
