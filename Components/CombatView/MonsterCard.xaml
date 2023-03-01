@@ -8,16 +8,15 @@
 
     <VerticalStackLayout Margin="10"
                          Spacing="5"
-                         HorizontalOptions="Center"
-                         >
+                         HorizontalOptions="Center">
         <HorizontalStackLayout Spacing="5"
                                HorizontalOptions="Center">
             <Label HorizontalTextAlignment="Center">Level:</Label>
-            <Label Text="1"
+            <Label Text="{Binding MonsterLevel}"
                    HorizontalTextAlignment="Center"
                    TextColor="Red" />
         </HorizontalStackLayout>
-        <Image Source="enemy1.jpeg"
+        <Image Source="{Binding MonsterAvatar}"
                WidthRequest="100"
                HeightRequest="100" />
         <VerticalStackLayout Spacing="1"
@@ -26,14 +25,14 @@
                                    Spacing="3">
                 <Label HorizontalTextAlignment="Center">HP:</Label>
                 <Label HorizontalTextAlignment="Center"
-                       Text=""
+                       Text="{Binding MonsterCurrentHP}"
                        TextColor="Red" />
                 <Label HorizontalTextAlignment="Center">/</Label>
                 <Label HorizontalTextAlignment="Center"
-                       Text=""
+                       Text="{Binding MonsterMaxHP}"
                        TextColor="Red" />
             </HorizontalStackLayout>
-            <ProgressBar Progress="0.5"
+            <ProgressBar Progress="{Binding MonsterHPProgress}"
                          HeightRequest="30"
                          WidthRequest="100" />
         </VerticalStackLayout>

@@ -45,7 +45,7 @@
                 <Button Text="Load Player"
                         Command="{Binding SetPlayerCommand}"></Button>
                 <Button Text="Load Monster"
-                        Command="{Binding SetPlayerCommand}"></Button>
+                        Command="{Binding setMonsterCommand}"></Button>
             </HorizontalStackLayout>
         </VerticalStackLayout>
     </Grid>
