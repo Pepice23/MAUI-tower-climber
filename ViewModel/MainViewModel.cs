@@ -7,8 +7,8 @@ namespace MAUI_tower_climber.ViewModel
 {
     public partial class MainViewModel : ObservableObject
     {
+        ItemCreator item = new(1);
 
-        Item ItemCreator = new();
 
         [ObservableProperty]
         double monsterProgressHP = 1;
@@ -24,7 +24,7 @@ namespace MAUI_tower_climber.ViewModel
         [RelayCommand]
         void PlayerAttack()
         {
-            ItemCreator.GenerateRandomItem(1);
+            Console.WriteLine(item);
             MonsterCurrentHPText -= 10;
             MonsterProgressHP = MonsterCurrentHPText / MonsterFullHPText;
         }
