@@ -35,6 +35,18 @@ namespace MAUI_tower_climber.ViewModel
         [ObservableProperty]
         double playerXpProgress = 0;
 
+        [ObservableProperty]
+        bool playerVisible = true;
+
+        [ObservableProperty]
+        double floorProgress = 0;
+
+        [ObservableProperty]
+        double monsterProgress = 0;
+
+        [ObservableProperty]
+        int monsterCount = 0;
+
         /// <summary>
         /// Player Observables
         /// </summary>
@@ -49,6 +61,7 @@ namespace MAUI_tower_climber.ViewModel
             CurrentXP = player.CurrentXP;
             MaxXP = player.XPToNextLevel;
             PlayerXpProgress = (double)CurrentXP / MaxXP;
+            PlayerVisible = player.Visible;
         }
 
         [ObservableProperty]
@@ -78,9 +91,46 @@ namespace MAUI_tower_climber.ViewModel
             MonsterCurrentHP = monster.CurrentMonsterHP;
             MonsterMaxHP = monster.MonsterMaxHP;
             MonsterHPProgress = (double)MonsterCurrentHP / MonsterMaxHP;
-
-
         }
 
+        [RelayCommand]
+        void TogglePlayer()
+        {
+            PlayerVisible = !PlayerVisible;
+        }
+
+        [RelayCommand]
+        void ToggleMonster()
+        {
+            MonsterVisible = !MonsterVisible;
+        }
+
+        [RelayCommand]
+        void AddFloor()
+        {
+            PlayerFloor++;
+            FloorProgress = (double)PlayerFloor / 100;
+        }
+
+        [RelayCommand]
+        void RemoveFloor()
+        {
+            PlayerFloor--;
+            FloorProgress = (double)PlayerFloor / 100;
+        }
+
+        [RelayCommand]
+        void AddMonsterCount()
+        {
+            MonsterCount++;
+            MonsterProgress = (double)MonsterCount / 15;
+        }
+
+        [RelayCommand]
+        void RemoveMonsterCount()
+        {
+            MonsterCount--;
+            MonsterProgress = (double)MonsterCount / 15;
+        }
     }
 }

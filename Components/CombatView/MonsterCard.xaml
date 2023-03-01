@@ -8,7 +8,8 @@
 
     <VerticalStackLayout Margin="10"
                          Spacing="5"
-                         HorizontalOptions="Center">
+                         HorizontalOptions="Center"
+                         IsVisible="{Binding MonsterVisible}">
         <HorizontalStackLayout Spacing="5"
                                HorizontalOptions="Center">
             <Label HorizontalTextAlignment="Center">Level:</Label>

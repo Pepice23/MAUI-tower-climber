@@ -5,46 +5,47 @@
              xmlns:viewModel="clr-namespace:MAUI_tower_climber.ViewModel"
              x:DataType="viewModel:MainViewModel">
     <VerticalStackLayout Margin="10"
-                             Spacing="5"
-                             HorizontalOptions="Center">
-       <HorizontalStackLayout Spacing="5"
-                              HorizontalOptions="Center">
-                <Label HorizontalTextAlignment="Center">Level:</Label>
-                <Label Text="{Binding PlayerLevel}"
-                       HorizontalTextAlignment="Center"
+                         Spacing="5"
+                         HorizontalOptions="Center"
+                         IsVisible="{Binding PlayerVisible}">
+        <HorizontalStackLayout Spacing="5"
+                               HorizontalOptions="Center">
+            <Label HorizontalTextAlignment="Center">Level:</Label>
+            <Label Text="{Binding PlayerLevel}"
+                   HorizontalTextAlignment="Center"
+                   TextColor="Red" />
+        </HorizontalStackLayout>
+        <Image Source="{Binding PlayerAvatar}"
+               WidthRequest="100"
+               HeightRequest="100" />
+        <HorizontalStackLayout Spacing="5">
+            <Label HorizontalTextAlignment="Center">Damage/Click:</Label>
+            <Label Text="{Binding PlayerDamagePerClick}"
+                   HorizontalTextAlignment="Center"
+                   TextColor="Red" />
+        </HorizontalStackLayout>
+        <HorizontalStackLayout Spacing="5">
+            <Label HorizontalTextAlignment="Center">Damage/Second:</Label>
+            <Label Text="{Binding PlayerDamagePerSecond}"
+                   HorizontalTextAlignment="Center"
+                   TextColor="Red" />
+        </HorizontalStackLayout>
+        <VerticalStackLayout Spacing="1"
+                             Margin="5">
+            <HorizontalStackLayout HorizontalOptions="Center"
+                                   Spacing="3">
+                <Label HorizontalTextAlignment="Center">XP:</Label>
+                <Label HorizontalTextAlignment="Center"
+                       Text="{Binding CurrentXP}"
+                       TextColor="Red" />
+                <Label HorizontalTextAlignment="Center">/</Label>
+                <Label HorizontalTextAlignment="Center"
+                       Text="{Binding MaxXP}"
                        TextColor="Red" />
             </HorizontalStackLayout>
-            <Image Source="{Binding PlayerAvatar}"
-                   WidthRequest="100"
-                   HeightRequest="100" />
-            <HorizontalStackLayout Spacing="5">
-                <Label HorizontalTextAlignment="Center">Damage/Click:</Label>
-                <Label Text="{Binding PlayerDamagePerClick}"
-                       HorizontalTextAlignment="Center"
-                       TextColor="Red" />
-            </HorizontalStackLayout>
-            <HorizontalStackLayout Spacing="5">
-                <Label HorizontalTextAlignment="Center">Damage/Second:</Label>
-                <Label Text="{Binding PlayerDamagePerSecond}"
-                       HorizontalTextAlignment="Center"
-                       TextColor="Red" />
-            </HorizontalStackLayout>
-            <VerticalStackLayout Spacing="1"
-                                 Margin="5">
-                <HorizontalStackLayout HorizontalOptions="Center"
-                                       Spacing="3">
-                    <Label HorizontalTextAlignment="Center">XP:</Label>
-                    <Label HorizontalTextAlignment="Center"
-                           Text="{Binding CurrentXP}"
-                           TextColor="Red" />
-                    <Label HorizontalTextAlignment="Center">/</Label>
-                    <Label HorizontalTextAlignment="Center"
-                           Text="{Binding MaxXP}"
-                           TextColor="Red" />
-                </HorizontalStackLayout>
-                <ProgressBar Progress="{Binding PlayerXpProgress}"
-                             HeightRequest="30"
-                             WidthRequest="100" />
-            </VerticalStackLayout>
+            <ProgressBar Progress="{Binding PlayerXpProgress}"
+                         HeightRequest="30"
+                         WidthRequest="100" />
         </VerticalStackLayout>
+    </VerticalStackLayout>
 </ContentView>

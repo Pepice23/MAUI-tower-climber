@@ -2,8 +2,6 @@
 {
     public class Monster
     {
-
-
         public int CurrentMonsterHP;
         public int MonsterMaxHP;
         public string MonsterAvatar;
