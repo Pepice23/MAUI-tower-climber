@@ -52,6 +52,21 @@
 	  <None Remove="Resources\Images\bg_1.png" />
 	  <None Remove="Resources\Images\enemy1.jpeg" />
 	  <None Remove="Resources\Images\hero1.jpeg" />
+	  <None Remove="Resources\Images\weapon1.jpeg" />
+	  <None Remove="Resources\Images\weapon10.jpeg" />
+	  <None Remove="Resources\Images\weapon11.jpeg" />
+	  <None Remove="Resources\Images\weapon12.jpeg" />
+	  <None Remove="Resources\Images\weapon13.jpeg" />
+	  <None Remove="Resources\Images\weapon14.jpeg" />
+	  <None Remove="Resources\Images\weapon15.jpeg" />
+	  <None Remove="Resources\Images\weapon2.jpeg" />
+	  <None Remove="Resources\Images\weapon3.jpeg" />
+	  <None Remove="Resources\Images\weapon4.jpeg" />
+	  <None Remove="Resources\Images\weapon5.jpeg" />
+	  <None Remove="Resources\Images\weapon6.jpeg" />
+	  <None Remove="Resources\Images\weapon7.jpeg" />
+	  <None Remove="Resources\Images\weapon8.jpeg" />
+	  <None Remove="Resources\Images\weapon9.jpeg" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -63,10 +78,6 @@
 	  <Compile Update="Components\DeveloperConsole.xaml.cs">
 	    <DependentUpon>DeveloperConsole.xaml</DependentUpon>
 	  </Compile>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <MauiImage Update="Resources\Images\dotnet_bot.svg" BaseSize="168,208" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -82,6 +93,28 @@
 	  <MauiXaml Update="Components\StageDisplay.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiImage Include="Resources\Images\Backgrounds\bg_1.png" />
+	  <MauiImage Include="Resources\Images\Enemies\enemy1.jpeg" />
+	  <MauiImage Include="Resources\Images\Heroes\hero1.jpeg" />
+	  <MauiImage Include="Resources\Images\UI\attack_button.png" />
+	  <MauiImage Include="Resources\Images\Weapons\weapon1.jpeg" />
+	  <MauiImage Include="Resources\Images\Weapons\weapon10.jpeg" />
+	  <MauiImage Include="Resources\Images\Weapons\weapon11.jpeg" />
+	  <MauiImage Include="Resources\Images\Weapons\weapon12.jpeg" />
+	  <MauiImage Include="Resources\Images\Weapons\weapon13.jpeg" />
+	  <MauiImage Include="Resources\Images\Weapons\weapon14.jpeg" />
+	  <MauiImage Include="Resources\Images\Weapons\weapon15.jpeg" />
+	  <MauiImage Include="Resources\Images\Weapons\weapon2.jpeg" />
+	  <MauiImage Include="Resources\Images\Weapons\weapon3.jpeg" />
+	  <MauiImage Include="Resources\Images\Weapons\weapon4.jpeg" />
+	  <MauiImage Include="Resources\Images\Weapons\weapon5.jpeg" />
+	  <MauiImage Include="Resources\Images\Weapons\weapon6.jpeg" />
+	  <MauiImage Include="Resources\Images\Weapons\weapon7.jpeg" />
+	  <MauiImage Include="Resources\Images\Weapons\weapon8.jpeg" />
+	  <MauiImage Include="Resources\Images\Weapons\weapon9.jpeg" />
 	</ItemGroup>
 
 </Project>
