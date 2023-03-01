@@ -7,29 +7,41 @@ namespace MAUI_tower_climber.ViewModel
 {
     public partial class MainViewModel : ObservableObject
     {
-        ItemCreator item = new(1);
-
-
-        [ObservableProperty]
-        double monsterProgressHP = 1;
+        Weapon item = new(1);
+        Player player = new();
 
         [ObservableProperty]
-        double monsterCurrentHPText = 100;
+        int playerLevel = 1;
 
         [ObservableProperty]
-        int monsterFullHPText = 100;
+        string playerAvatar = string.Empty;
 
+        [ObservableProperty]
+        int playerDamagePerClick = 1;
 
+        [ObservableProperty]
+        int playerDamagePerSecond = 1;
+
+        [ObservableProperty]
+        int currentXP = 1;
+
+        [ObservableProperty]
+        int maxXP = 10;
+
+        [ObservableProperty]
+        double playerXpProgress = 0;
 
         [RelayCommand]
-        void PlayerAttack()
+        void SetPlayer()
         {
-            Console.WriteLine(item);
-            MonsterCurrentHPText -= 10;
-            MonsterProgressHP = MonsterCurrentHPText / MonsterFullHPText;
+            PlayerLevel = player.Level;
+            PlayerAvatar = player.Avatar;
+            PlayerDamagePerClick = player.PerClickDamage;
+            PlayerDamagePerSecond = player.PerSecondDamage;
+            CurrentXP = player.CurrentXP;
+            MaxXP = player.XPToNextLevel;
+            PlayerXpProgress = (double)CurrentXP / MaxXP;
         }
-
-
 
     }
 }

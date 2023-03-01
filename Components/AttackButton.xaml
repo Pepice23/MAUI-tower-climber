@@ -4,16 +4,15 @@
              x:Class="MAUI_tower_climber.Components.AttackButton"
              xmlns:viewModel="clr-namespace:MAUI_tower_climber.ViewModel"
              x:DataType="viewModel:MainViewModel">
-    
-        <VerticalStackLayout Spacing="5"
-                             Margin="10"
-                             HorizontalOptions="Center"
-                             VerticalOptions="Center">
+
+    <VerticalStackLayout Spacing="5"
+                         Margin="10"
+                         HorizontalOptions="Center"
+                         VerticalOptions="Center">
         <ImageButton Source="attack_button.png"
                      WidthRequest="100"
-                     HeightRequest="100"
-                     Command="{Binding PlayerAttackCommand}" />
+                     HeightRequest="100" />
         <Label HorizontalTextAlignment="Center">Attack!</Label>
     </VerticalStackLayout>
-    
+
 </ContentView>

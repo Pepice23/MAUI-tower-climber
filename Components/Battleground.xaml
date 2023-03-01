@@ -24,22 +24,22 @@
             <HorizontalStackLayout Spacing="5"
                                    HorizontalOptions="Center">
                 <Label HorizontalTextAlignment="Center">Level:</Label>
-                <Label Text="1"
+                <Label Text="{Binding PlayerLevel}"
                        HorizontalTextAlignment="Center"
                        TextColor="Red" />
             </HorizontalStackLayout>
-            <Image Source="hero1.jpeg"
+            <Image Source="{Binding PlayerAvatar}"
                    WidthRequest="100"
                    HeightRequest="100" />
             <HorizontalStackLayout Spacing="5">
                 <Label HorizontalTextAlignment="Center">Damage/Click:</Label>
-                <Label Text="100"
+                <Label Text="{Binding PlayerDamagePerClick}"
                        HorizontalTextAlignment="Center"
                        TextColor="Red" />
             </HorizontalStackLayout>
             <HorizontalStackLayout Spacing="5">
                 <Label HorizontalTextAlignment="Center">Damage/Second:</Label>
-                <Label Text="100"
+                <Label Text="{Binding PlayerDamagePerSecond}"
                        HorizontalTextAlignment="Center"
                        TextColor="Red" />
             </HorizontalStackLayout>
@@ -49,14 +49,14 @@
                                        Spacing="3">
                     <Label HorizontalTextAlignment="Center">XP:</Label>
                     <Label HorizontalTextAlignment="Center"
-                           Text="25"
+                           Text="{Binding CurrentXP}"
                            TextColor="Red" />
                     <Label HorizontalTextAlignment="Center">/</Label>
                     <Label HorizontalTextAlignment="Center"
-                           Text="50"
+                           Text="{Binding MaxXP}"
                            TextColor="Red" />
                 </HorizontalStackLayout>
-                <ProgressBar Progress="0.5"
+                <ProgressBar Progress="{Binding PlayerXpProgress}"
                              HeightRequest="30"
                              WidthRequest="100" />
             </VerticalStackLayout>
@@ -89,14 +89,14 @@
                                        Spacing="3">
                     <Label HorizontalTextAlignment="Center">HP:</Label>
                     <Label HorizontalTextAlignment="Center"
-                           Text="{Binding MonsterCurrentHPText}"
+                           Text=""
                            TextColor="Red" />
                     <Label HorizontalTextAlignment="Center">/</Label>
                     <Label HorizontalTextAlignment="Center"
-                           Text="{Binding MonsterFullHPText}"
+                           Text=""
                            TextColor="Red" />
                 </HorizontalStackLayout>
-                <ProgressBar Progress="{Binding MonsterProgressHP}"
+                <ProgressBar Progress="0.5"
                              HeightRequest="30"
                              WidthRequest="100" />
             </VerticalStackLayout>
