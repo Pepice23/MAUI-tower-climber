@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MAUI_tower_climber.Components.CombatView.Battleground"
+             xmlns:viewModel="clr-namespace:MAUI_tower_climber.ViewModel"
+             xmlns:combatView="clr-namespace:MAUI_tower_climber.Components.CombatView"
+             x:DataType="viewModel:MainViewModel">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <combatView:PlayerCard Grid.Column="0"/>
+        
+
+        
+
+        <Label Text="You win!"
+               HorizontalTextAlignment="Center"
+               Grid.Column="1"
+               Margin="10"
+               TextColor="Red" />
+
+        <combatView:MonsterCard Grid.Column="2" />
+    </Grid>
+</ContentView>

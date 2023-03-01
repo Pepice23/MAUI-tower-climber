@@ -1,4 +1,4 @@
-namespace MAUI_tower_climber.Components;
+namespace MAUI_tower_climber.Components.CombatView;
 
 public partial class Battleground : ContentView
 {
