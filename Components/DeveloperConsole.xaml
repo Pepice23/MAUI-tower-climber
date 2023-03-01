@@ -40,10 +40,11 @@
                              Spacing="10"
                              Grid.Row="0"
                              Grid.Column="2">
-            <Label HorizontalTextAlignment="Center">Load Player Data:</Label>
             <HorizontalStackLayout Spacing="5"
                                    HorizontalOptions="Center">
                 <Button Text="Load Player"
+                        Command="{Binding SetPlayerCommand}"></Button>
+                <Button Text="Load Monster"
                         Command="{Binding SetPlayerCommand}"></Button>
             </HorizontalStackLayout>
         </VerticalStackLayout>
