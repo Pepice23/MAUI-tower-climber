@@ -32,7 +32,7 @@ namespace MAUI_tower_climber
             MonsterCount = 1;
             CurrentXP = 0;
             XPToNextLevel = 100;
-            Avatar = "hero1.jpeg";
+            Avatar = "hero2.jpeg";
         }
     }
 }
