@@ -1,8 +1,7 @@
 ﻿
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using System.Threading;
-using System.Timers;
+using System.Diagnostics;
 
 namespace MAUI_tower_climber.ViewModel
 {
@@ -11,6 +10,7 @@ namespace MAUI_tower_climber.ViewModel
         Weapon item = new(1);
         Player player = new();
         Monster monster = new();
+        Random random = new Random();
 
         [ObservableProperty]
         int playerLevel = 1;
@@ -50,6 +50,9 @@ namespace MAUI_tower_climber.ViewModel
 
         [ObservableProperty]
         string backgroundPicture;
+
+        [ObservableProperty]
+        int playerMoney = 0;
 
         /// <summary>
         /// Player Observables
@@ -138,11 +141,12 @@ namespace MAUI_tower_climber.ViewModel
             MonsterProgress = (double)MonsterCount / 15;
         }
 
-        PeriodicTimer timer = new PeriodicTimer (TimeSpan.FromSeconds(1));
+
 
         [RelayCommand]
         async void StartBattle()
         {
+            PeriodicTimer timer = new PeriodicTimer(TimeSpan.FromSeconds(1));
             while (await timer.WaitForNextTickAsync())
             {
                 MonsterCurrentHP -= PlayerDamagePerSecond;
@@ -152,8 +156,41 @@ namespace MAUI_tower_climber.ViewModel
                 {
                     timer.Dispose();
                     AddMonsterCount();
+                    CalculateXP();
+                    CheckLevelUp();
+                    AddMoneyAfterBattle();
+                    setMonster();
+
                 }
             }
+
+
+        }
+
+        void AddMoneyAfterBattle()
+        {
+            PlayerMoney += random.Next(PlayerFloor * MonsterCount, PlayerFloor * MonsterCount * 2);
+        }
+
+        void CheckLevelUp()
+        {
+            if (CurrentXP >= MaxXP)
+            {
+                PlayerLevel++;
+                CurrentXP -= MaxXP;
+                MaxXP = (int)(MaxXP * 1.15);
+                PlayerXpProgress = (double)CurrentXP / MaxXP;
+            }
+        }
+
+        void CalculateXP()
+        {
+            double XPPercent = random.Next(5, 11);
+            double XPbase = XPPercent / 100;
+            double XP = XPbase * MaxXP;
+            CurrentXP += (int)XP;
+            PlayerXpProgress = (double)CurrentXP / MaxXP;
+
         }
     }
 
