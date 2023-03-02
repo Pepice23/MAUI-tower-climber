@@ -63,6 +63,11 @@
                 <Button Text="-"
                         Command="{Binding RemoveMonsterCountCommand}" />
             </HorizontalStackLayout>
+            <HorizontalStackLayout Spacing="5" HorizontalOptions="Center">
+                <Button Text="Start Battle"
+                        Command="{Binding StartBattleCommand}" />
+                <Button Text="Stop Battle"></Button>
+            </HorizontalStackLayout>
         </VerticalStackLayout>
     </Grid>
 </ContentView>
