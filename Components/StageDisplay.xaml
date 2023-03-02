@@ -27,7 +27,8 @@
             </HorizontalStackLayout>
             <ProgressBar Progress="{Binding FloorProgress}"
                          HeightRequest="30"
-                         WidthRequest="100" />
+                         WidthRequest="100"
+                         ScaleY="3"/>
         </VerticalStackLayout>
 
         <VerticalStackLayout Spacing="1"
@@ -42,7 +43,8 @@
             </HorizontalStackLayout>
             <ProgressBar Progress="{Binding MonsterProgress}"
                          HeightRequest="30"
-                         WidthRequest="100" />
+                         WidthRequest="100"
+                         ScaleY="3"/>
         </VerticalStackLayout>
     </Grid>
 </ContentView>
