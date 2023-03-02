@@ -35,7 +35,9 @@
             </HorizontalStackLayout>
             <ProgressBar Progress="{Binding MonsterHPProgress}"
                          HeightRequest="30"
-                         WidthRequest="100" />
+                         WidthRequest="100"
+                         ScaleY="3"
+                         ProgressColor="Red"/>
         </VerticalStackLayout>
     </VerticalStackLayout>
 </ContentView>
