@@ -19,6 +19,7 @@ namespace MAUI_tower_climber
         public int CurrentXP;
         public int XPToNextLevel;
         public string Avatar;
+        public string BackgroundPicture;
 
         public Player()
         {
@@ -33,6 +34,7 @@ namespace MAUI_tower_climber
             CurrentXP = 0;
             XPToNextLevel = 100;
             Avatar = "hero2.jpeg";
+            BackgroundPicture = "bg_1.png";
         }
     }
 }
