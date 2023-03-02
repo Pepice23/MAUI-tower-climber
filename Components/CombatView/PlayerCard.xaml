@@ -7,10 +7,11 @@
     <VerticalStackLayout Margin="10"
                          Spacing="5"
                          HorizontalOptions="Center"
-                         IsVisible="{Binding PlayerVisible}">
+                         IsVisible="{Binding PlayerVisible}"
+                         BackgroundColor="Black">
         <HorizontalStackLayout Spacing="5"
                                HorizontalOptions="Center">
-            <Label HorizontalTextAlignment="Center">Level:</Label>
+            <Label HorizontalTextAlignment="Center" TextColor="White">Level:</Label>
             <Label Text="{Binding PlayerLevel}"
                    HorizontalTextAlignment="Center"
                    TextColor="Red" />
@@ -19,13 +20,13 @@
                WidthRequest="100"
                HeightRequest="100" />
         <HorizontalStackLayout Spacing="5">
-            <Label HorizontalTextAlignment="Center">Damage/Click:</Label>
+            <Label HorizontalTextAlignment="Center" TextColor="White">Damage/Click:</Label>
             <Label Text="{Binding PlayerDamagePerClick}"
                    HorizontalTextAlignment="Center"
                    TextColor="Red" />
         </HorizontalStackLayout>
         <HorizontalStackLayout Spacing="5">
-            <Label HorizontalTextAlignment="Center">Damage/Second:</Label>
+            <Label HorizontalTextAlignment="Center" TextColor="White">Damage/Second:</Label>
             <Label Text="{Binding PlayerDamagePerSecond}"
                    HorizontalTextAlignment="Center"
                    TextColor="Red" />
@@ -34,18 +35,20 @@
                              Margin="5">
             <HorizontalStackLayout HorizontalOptions="Center"
                                    Spacing="3">
-                <Label HorizontalTextAlignment="Center">XP:</Label>
+                <Label HorizontalTextAlignment="Center" TextColor="White">XP:</Label>
                 <Label HorizontalTextAlignment="Center"
                        Text="{Binding CurrentXP}"
                        TextColor="Red" />
-                <Label HorizontalTextAlignment="Center">/</Label>
+                <Label HorizontalTextAlignment="Center" TextColor="White">/</Label>
                 <Label HorizontalTextAlignment="Center"
                        Text="{Binding MaxXP}"
                        TextColor="Red" />
             </HorizontalStackLayout>
             <ProgressBar Progress="{Binding PlayerXpProgress}"
                          HeightRequest="30"
-                         WidthRequest="100" />
+                         WidthRequest="100"
+                         ScaleY="3"
+                         ProgressColor="LimeGreen"/>
         </VerticalStackLayout>
     </VerticalStackLayout>
 </ContentView>
