@@ -2,6 +2,7 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System.Threading;
+using System.Timers;
 
 namespace MAUI_tower_climber.ViewModel
 {
@@ -136,5 +137,25 @@ namespace MAUI_tower_climber.ViewModel
             MonsterCount--;
             MonsterProgress = (double)MonsterCount / 15;
         }
+
+        PeriodicTimer timer = new PeriodicTimer (TimeSpan.FromSeconds(1));
+
+        [RelayCommand]
+        async void StartBattle()
+        {
+            while (await timer.WaitForNextTickAsync())
+            {
+                MonsterCurrentHP -= PlayerDamagePerSecond;
+                MonsterHPProgress = (double)MonsterCurrentHP / MonsterMaxHP;
+
+                if (MonsterCurrentHP <= 0)
+                {
+                    timer.Dispose();
+                    AddMonsterCount();
+                }
+            }
+        }
     }
+
 }
+
