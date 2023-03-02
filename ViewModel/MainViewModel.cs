@@ -12,21 +12,40 @@ namespace MAUI_tower_climber.ViewModel
         Monster monster = new();
         Random random = new Random();
 
-        [ObservableProperty]
-        int playerLevel = 1;
 
+        //Floor Monster Text & Progress Bar
+        [ObservableProperty]
+        int floorMonsterCount = 0;
+
+        [ObservableProperty]
+        double monsterProgress = 0;
+
+        //Floor Text & Progress Bar
         [ObservableProperty]
         int playerFloor = 1;
 
         [ObservableProperty]
+        double floorProgress = 0;
+
+        //Player Visibility & Avatar
+        [ObservableProperty]
+        bool playerVisible = true;
+
+        [ObservableProperty]
         string playerAvatar = string.Empty;
 
+        // Level
+        [ObservableProperty]
+        int playerLevel = 1;
+
+        //Players Damage
         [ObservableProperty]
         int playerDamagePerClick = 1;
 
         [ObservableProperty]
         int playerDamagePerSecond = 1;
 
+        //Players XP & Progress Bar
         [ObservableProperty]
         int currentXP = 1;
 
@@ -36,27 +55,13 @@ namespace MAUI_tower_climber.ViewModel
         [ObservableProperty]
         double playerXpProgress = 0;
 
-        [ObservableProperty]
-        bool playerVisible = true;
-
-        [ObservableProperty]
-        double floorProgress = 0;
-
-        [ObservableProperty]
-        double monsterProgress = 0;
-
-        [ObservableProperty]
-        int monsterCount = 0;
-
+        // Background Picture
         [ObservableProperty]
         string backgroundPicture;
 
+        //Player Money
         [ObservableProperty]
         int playerMoney = 0;
-
-        /// <summary>
-        /// Player Observables
-        /// </summary>
 
         [RelayCommand]
         void SetPlayer()
@@ -130,15 +135,15 @@ namespace MAUI_tower_climber.ViewModel
         [RelayCommand]
         void AddMonsterCount()
         {
-            MonsterCount++;
-            MonsterProgress = (double)MonsterCount / 15;
+            FloorMonsterCount++;
+            MonsterProgress = (double)FloorMonsterCount / 15;
         }
 
         [RelayCommand]
         void RemoveMonsterCount()
         {
-            MonsterCount--;
-            MonsterProgress = (double)MonsterCount / 15;
+            FloorMonsterCount--;
+            MonsterProgress = (double)FloorMonsterCount / 15;
         }
 
 
@@ -169,7 +174,7 @@ namespace MAUI_tower_climber.ViewModel
 
         void AddMoneyAfterBattle()
         {
-            PlayerMoney += random.Next(PlayerFloor * MonsterCount, PlayerFloor * MonsterCount * 2);
+            PlayerMoney += random.Next(PlayerFloor * FloorMonsterCount, PlayerFloor * FloorMonsterCount * 2);
         }
 
         void CheckLevelUp()
