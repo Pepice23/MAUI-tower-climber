@@ -47,6 +47,9 @@ namespace MAUI_tower_climber.ViewModel
         [ObservableProperty]
         int monsterCount = 0;
 
+        [ObservableProperty]
+        string backgroundPicture;
+
         /// <summary>
         /// Player Observables
         /// </summary>
@@ -62,6 +65,7 @@ namespace MAUI_tower_climber.ViewModel
             MaxXP = player.XPToNextLevel;
             PlayerXpProgress = (double)CurrentXP / MaxXP;
             PlayerVisible = player.Visible;
+            BackgroundPicture = player.BackgroundPicture;
         }
 
         [ObservableProperty]
