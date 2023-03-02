@@ -12,6 +12,10 @@ namespace MAUI_tower_climber.ViewModel
         Monster monster = new();
         Random random = new Random();
 
+        // Total Monster Count
+        [ObservableProperty]
+        int totalMonsterCount = 0;
+
 
         //Floor Monster Text & Progress Bar
         [ObservableProperty]
@@ -77,15 +81,18 @@ namespace MAUI_tower_climber.ViewModel
             BackgroundPicture = player.BackgroundPicture;
         }
 
+        // Monster Visibility & Avatar
         [ObservableProperty]
         bool monsterVisible = true;
 
         [ObservableProperty]
-        int monsterLevel = 1;
-
-        [ObservableProperty]
         string monsterAvatar = string.Empty;
 
+        // Monster Level
+        [ObservableProperty]
+        int monsterLevel = 1;
+
+        // Monster HP
         [ObservableProperty]
         int monsterCurrentHP = 1;
 
@@ -94,6 +101,9 @@ namespace MAUI_tower_climber.ViewModel
 
         [ObservableProperty]
         double monsterHPProgress = 0;
+
+        [ObservableProperty]
+        string outcome = string.Empty;
 
         [RelayCommand]
         void setMonster()
@@ -126,13 +136,6 @@ namespace MAUI_tower_climber.ViewModel
         }
 
         [RelayCommand]
-        void RemoveFloor()
-        {
-            PlayerFloor--;
-            FloorProgress = (double)PlayerFloor / 100;
-        }
-
-        [RelayCommand]
         void AddMonsterCount()
         {
             FloorMonsterCount++;
@@ -145,8 +148,6 @@ namespace MAUI_tower_climber.ViewModel
             FloorMonsterCount--;
             MonsterProgress = (double)FloorMonsterCount / 15;
         }
-
-
 
         [RelayCommand]
         async void StartBattle()
@@ -196,6 +197,39 @@ namespace MAUI_tower_climber.ViewModel
             CurrentXP += (int)XP;
             PlayerXpProgress = (double)CurrentXP / MaxXP;
 
+        }
+
+        void CheckNextFloor()
+        {
+            if (FloorMonsterCount > 15)
+            {
+                PlayerFloor++;
+                FloorMonsterCount = 0;
+                // TODO: get new weapon
+                // TODO: change background
+            }
+        }
+
+        void PlayerWins()
+        {
+            MonsterVisible = false;
+            Outcome = "You win"!;
+            FloorMonsterCount++;
+            TotalMonsterCount++;
+            CalculateXP();
+            CheckLevelUp();
+            CheckNextFloor();
+            //Todo Check if player gets loot
+            AddMoneyAfterBattle();
+            //Todo check game end
+        }
+
+        void PlayerLoses()
+        {
+            PlayerVisible = false;
+            Outcome = "You Lose!";
+            FloorMonsterCount = 0;
+            TotalMonsterCount = PlayerFloor - 1 * 15;
         }
     }
 
