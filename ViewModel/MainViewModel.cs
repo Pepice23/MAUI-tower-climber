@@ -199,6 +199,12 @@ namespace MAUI_tower_climber.ViewModel
 
         }
 
+        void ChangeBackground()
+        {
+            int randomNumber = random.Next(1, 59);
+            BackgroundPicture = $"bg{randomNumber}.png";
+        }
+
         void CheckNextFloor()
         {
             if (FloorMonsterCount > 15)

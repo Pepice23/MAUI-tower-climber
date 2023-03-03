@@ -34,7 +34,7 @@ namespace MAUI_tower_climber
             CurrentXP = 0;
             XPToNextLevel = 100;
             Avatar = "hero2.jpeg";
-            BackgroundPicture = "bg_1.png";
+            BackgroundPicture = "bg1.png";
         }
     }
 }
