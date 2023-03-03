@@ -46,27 +46,11 @@
                         Command="{Binding SetPlayerCommand}"></Button>
                 <Button Text="Load Monster"
                         Command="{Binding setMonsterCommand}"></Button>
-                <Button Text="Toggle Player"
-                        Command="{Binding TogglePlayerCommand}"></Button>
-                <Button Text="Toggle Monster"
-                        Command="{Binding ToggleMonsterCommand}"></Button>
-            </HorizontalStackLayout>
-            <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
-                <Button Text="+"
-                        Command="{Binding AddFloorCommand}" />
-                <Label>Floor Controls</Label>
-                <Button Text="-"
-                        Command="{Binding RemoveFloorCommand}" />
-                <Button Text="+"
-                        Command="{Binding AddMonsterCountCommand}" />
-                <Label>MonsterCount Controls</Label>
-                <Button Text="-"
-                        Command="{Binding RemoveMonsterCountCommand}" />
             </HorizontalStackLayout>
             <HorizontalStackLayout Spacing="5" HorizontalOptions="Center">
                 <Button Text="Start Battle"
                         Command="{Binding StartBattleCommand}" />
-                <Button Text="Stop Battle"></Button>
+                <Button Text="Stop Battle" Command="{Binding StopTimerCommand}"></Button>
             </HorizontalStackLayout>
         </VerticalStackLayout>
     </Grid>

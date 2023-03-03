@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MAUI_tower_climber
+﻿namespace MAUI_tower_climber
 {
     internal class Player
     {
@@ -30,7 +24,7 @@ namespace MAUI_tower_climber
             PerSecondDamage = 10;
             DamageMultiplier = 1;
             Floor = 1;
-            MonsterCount = 1;
+            MonsterCount = 0;
             CurrentXP = 0;
             XPToNextLevel = 100;
             Avatar = "hero2.jpeg";

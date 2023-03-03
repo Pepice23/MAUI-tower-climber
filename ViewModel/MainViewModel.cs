@@ -1,5 +1,4 @@
-﻿
-using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System.Diagnostics;
 
@@ -11,6 +10,8 @@ namespace MAUI_tower_climber.ViewModel
         Player player = new();
         Monster monster = new();
         Random random = new Random();
+        PeriodicTimer timer;
+        bool IsBattleStarted = false;
 
         // Total Monster Count
         [ObservableProperty]
@@ -116,43 +117,29 @@ namespace MAUI_tower_climber.ViewModel
             MonsterHPProgress = (double)MonsterCurrentHP / MonsterMaxHP;
         }
 
-        [RelayCommand]
-        void TogglePlayer()
-        {
-            PlayerVisible = !PlayerVisible;
-        }
-
-        [RelayCommand]
-        void ToggleMonster()
-        {
-            MonsterVisible = !MonsterVisible;
-        }
-
-        [RelayCommand]
         void AddFloor()
         {
             PlayerFloor++;
             FloorProgress = (double)PlayerFloor / 100;
         }
 
-        [RelayCommand]
         void AddMonsterCount()
         {
             FloorMonsterCount++;
             MonsterProgress = (double)FloorMonsterCount / 15;
         }
 
-        [RelayCommand]
-        void RemoveMonsterCount()
+        void ResetMonsterCount()
         {
-            FloorMonsterCount--;
+            FloorMonsterCount = 1;
             MonsterProgress = (double)FloorMonsterCount / 15;
         }
 
         [RelayCommand]
         async void StartBattle()
         {
-            PeriodicTimer timer = new PeriodicTimer(TimeSpan.FromSeconds(1));
+            IsBattleStarted = true;
+            timer = new PeriodicTimer(TimeSpan.FromSeconds(1));
             while (await timer.WaitForNextTickAsync())
             {
                 MonsterCurrentHP -= PlayerDamagePerSecond;
@@ -161,13 +148,15 @@ namespace MAUI_tower_climber.ViewModel
                 if (MonsterCurrentHP <= 0)
                 {
                     timer.Dispose();
-                    AddMonsterCount();
-                    CalculateXP();
-                    CheckLevelUp();
-                    AddMoneyAfterBattle();
-                    setMonster();
+                    PlayerWins();
+
 
                 }
+            }
+            setMonster();
+            if (IsBattleStarted)
+            {
+                StartBattle();
             }
 
 
@@ -209,10 +198,19 @@ namespace MAUI_tower_climber.ViewModel
         {
             if (FloorMonsterCount > 15)
             {
-                PlayerFloor++;
-                FloorMonsterCount = 0;
+                AddFloor();
+                ResetMonsterCount();
                 // TODO: get new weapon
-                // TODO: change background
+                ChangeBackground();
+            }
+        }
+
+        void CheckPlayerGetsLoot()
+        {
+            int randomNumber = random.Next(1, 101);
+            if (randomNumber <= 20)
+            {
+                Debug.WriteLine("Player gets new loot");
             }
         }
 
@@ -220,12 +218,12 @@ namespace MAUI_tower_climber.ViewModel
         {
             MonsterVisible = false;
             Outcome = "You win"!;
-            FloorMonsterCount++;
+            AddMonsterCount();
             TotalMonsterCount++;
             CalculateXP();
             CheckLevelUp();
             CheckNextFloor();
-            //Todo Check if player gets loot
+            CheckPlayerGetsLoot();
             AddMoneyAfterBattle();
             //Todo check game end
         }
@@ -234,8 +232,15 @@ namespace MAUI_tower_climber.ViewModel
         {
             PlayerVisible = false;
             Outcome = "You Lose!";
-            FloorMonsterCount = 0;
-            TotalMonsterCount = PlayerFloor - 1 * 15;
+            ResetMonsterCount();
+            TotalMonsterCount = PlayerFloor - 1 * 15 + 1;
+        }
+
+        [RelayCommand]
+        void StopTimer()
+        {
+            timer.Dispose();
+            IsBattleStarted = false;
         }
     }
 

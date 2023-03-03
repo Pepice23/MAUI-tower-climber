@@ -37,7 +37,7 @@
                              Margin="10">
             <HorizontalStackLayout Spacing="5" HorizontalOptions="Center">
                 <Label HorizontalTextAlignment="Center">Monster:</Label>
-                <Label Text="{Binding MonsterCount}"
+                <Label Text="{Binding FloorMonsterCount}"
                        HorizontalTextAlignment="Center" />
                 <Label HorizontalTextAlignment="Center">/15</Label>
             </HorizontalStackLayout>
