@@ -14,22 +14,22 @@ namespace MAUI_tower_climber.ViewModel
         PeriodicTimer BossTimer;
         bool IsBattleStarted = false;
         int MaxBossTime = 30;
+        TimeSpan GameSpeed = TimeSpan.FromSeconds(1);
 
-
-        // Total Monster Count
-        [ObservableProperty]
-        int totalMonsterCount = 0;
-
-
-        //Floor Monster Text & Progress Bar
-        [ObservableProperty]
-        bool isBoss = false;
-
+        // Boss Timer & Progress Bar
         [ObservableProperty]
         int remainingBossTime;
 
         [ObservableProperty]
         double remainingBossTimeProgress;
+
+        // Total Monster Count
+        [ObservableProperty]
+        int totalMonsterCount = 0;
+
+        //Floor Monster Text & Progress Bar
+        [ObservableProperty]
+        bool isBoss = false;
 
         [ObservableProperty]
         int floorMonsterCount = 0;
@@ -155,7 +155,7 @@ namespace MAUI_tower_climber.ViewModel
             if (FloorMonsterCount == 15)
             {
                 IsBoss = true;
-                BossTimer = new PeriodicTimer(TimeSpan.FromSeconds(1));
+                BossTimer = new PeriodicTimer(GameSpeed);
                 while (await BossTimer.WaitForNextTickAsync())
                 {
                     RemainingBossTime--;
@@ -179,7 +179,7 @@ namespace MAUI_tower_climber.ViewModel
             if (FloorMonsterCount < 15)
             {
                 IsBoss = false;
-                NormalTimer = new PeriodicTimer(TimeSpan.FromSeconds(1));
+                NormalTimer = new PeriodicTimer(GameSpeed);
                 while (await NormalTimer.WaitForNextTickAsync())
                 {
                     MonsterCurrentHP -= PlayerDamagePerSecond;
@@ -278,6 +278,24 @@ namespace MAUI_tower_climber.ViewModel
         {
             NormalTimer.Dispose();
             IsBattleStarted = false;
+        }
+
+        [RelayCommand]
+        void NormalSpeed()
+        {
+            GameSpeed = TimeSpan.FromSeconds(1);
+        }
+
+        [RelayCommand]
+        void TwoSpeed()
+        {
+            GameSpeed = TimeSpan.FromMilliseconds(500);
+        }
+
+        [RelayCommand]
+        void FourSpeed()
+        {
+            GameSpeed = TimeSpan.FromMilliseconds(250);
         }
     }
 

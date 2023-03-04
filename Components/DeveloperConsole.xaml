@@ -22,9 +22,12 @@
             <Label HorizontalTextAlignment="Center">Time controls:</Label>
             <HorizontalStackLayout Spacing="5"
                                    HorizontalOptions="Center">
-                <Button Text="1x"></Button>
-                <Button Text="2x"></Button>
-                <Button Text="4x"></Button>
+                <Button Text="1x"
+                        Command="{Binding NormalSpeedCommand}" />
+                <Button Text="2x"
+                        Command="{Binding TwoSpeedCommand}" />
+                <Button Text="4x"
+                        Command="{Binding FourSpeedCommand}" />
             </HorizontalStackLayout>
         </VerticalStackLayout>
 
@@ -47,10 +50,12 @@
                 <Button Text="Load Monster"
                         Command="{Binding setMonsterCommand}"></Button>
             </HorizontalStackLayout>
-            <HorizontalStackLayout Spacing="5" HorizontalOptions="Center">
+            <HorizontalStackLayout Spacing="5"
+                                   HorizontalOptions="Center">
                 <Button Text="Start Battle"
                         Command="{Binding StartBattleCommand}" />
-                <Button Text="Stop Battle" Command="{Binding StopTimerCommand}"></Button>
+                <Button Text="Stop Battle"
+                        Command="{Binding StopTimerCommand}"></Button>
             </HorizontalStackLayout>
         </VerticalStackLayout>
     </Grid>
