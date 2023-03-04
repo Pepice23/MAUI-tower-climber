@@ -13,7 +13,7 @@
         <HorizontalStackLayout Spacing="5"
                                HorizontalOptions="Center">
             <Label HorizontalTextAlignment="Center">Level:</Label>
-            <Label Text="{Binding MonsterLevel}"
+            <Label Text="{Binding PlayerFloor}"
                    HorizontalTextAlignment="Center"
                    TextColor="Red" />
         </HorizontalStackLayout>
