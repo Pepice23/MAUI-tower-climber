@@ -10,8 +10,11 @@ namespace MAUI_tower_climber.ViewModel
         Player player = new();
         Monster monster = new();
         Random random = new Random();
-        PeriodicTimer timer;
+        PeriodicTimer NormalTimer;
+        PeriodicTimer BossTimer;
         bool IsBattleStarted = false;
+        int MaxBossTime = 30;
+
 
         // Total Monster Count
         [ObservableProperty]
@@ -19,6 +22,15 @@ namespace MAUI_tower_climber.ViewModel
 
 
         //Floor Monster Text & Progress Bar
+        [ObservableProperty]
+        bool isBoss = false;
+
+        [ObservableProperty]
+        int remainingBossTime;
+
+        [ObservableProperty]
+        double remainingBossTimeProgress;
+
         [ObservableProperty]
         int floorMonsterCount = 0;
 
@@ -115,6 +127,7 @@ namespace MAUI_tower_climber.ViewModel
             MonsterCurrentHP = monster.CurrentMonsterHP;
             MonsterMaxHP = monster.MonsterMaxHP;
             MonsterHPProgress = (double)MonsterCurrentHP / MonsterMaxHP;
+            RemainingBossTime = MaxBossTime;
         }
 
         void AddFloor()
@@ -139,27 +152,51 @@ namespace MAUI_tower_climber.ViewModel
         async void StartBattle()
         {
             IsBattleStarted = true;
-            timer = new PeriodicTimer(TimeSpan.FromSeconds(1));
-            while (await timer.WaitForNextTickAsync())
+            if (FloorMonsterCount == 15)
             {
-                MonsterCurrentHP -= PlayerDamagePerSecond;
-                MonsterHPProgress = (double)MonsterCurrentHP / MonsterMaxHP;
-
-                if (MonsterCurrentHP <= 0)
+                IsBoss = true;
+                BossTimer = new PeriodicTimer(TimeSpan.FromSeconds(1));
+                while (await BossTimer.WaitForNextTickAsync())
                 {
-                    timer.Dispose();
-                    PlayerWins();
+                    RemainingBossTime--;
+                    RemainingBossTimeProgress = (double)RemainingBossTime / MaxBossTime;
+                    MonsterCurrentHP -= PlayerDamagePerSecond;
+                    MonsterHPProgress = (double)MonsterCurrentHP / MonsterMaxHP;
 
+                    if (MonsterCurrentHP <= 0 && RemainingBossTime > 0)
+                    {
+                        BossTimer.Dispose();
+                        PlayerWins();
+                    }
+                    if (RemainingBossTime <= 0 && MonsterCurrentHP > 0)
+                    {
+                        BossTimer.Dispose();
+                        PlayerLoses();
+                    }
+                }
+                setMonster();
+            }
+            if (FloorMonsterCount < 15)
+            {
+                IsBoss = false;
+                NormalTimer = new PeriodicTimer(TimeSpan.FromSeconds(1));
+                while (await NormalTimer.WaitForNextTickAsync())
+                {
+                    MonsterCurrentHP -= PlayerDamagePerSecond;
+                    MonsterHPProgress = (double)MonsterCurrentHP / MonsterMaxHP;
 
+                    if (MonsterCurrentHP <= 0)
+                    {
+                        NormalTimer.Dispose();
+                        PlayerWins();
+                    }
+                }
+                setMonster();
+                if (IsBattleStarted)
+                {
+                    StartBattle();
                 }
             }
-            setMonster();
-            if (IsBattleStarted)
-            {
-                StartBattle();
-            }
-
-
         }
 
         void AddMoneyAfterBattle()
@@ -239,7 +276,7 @@ namespace MAUI_tower_climber.ViewModel
         [RelayCommand]
         void StopTimer()
         {
-            timer.Dispose();
+            NormalTimer.Dispose();
             IsBattleStarted = false;
         }
     }

@@ -21,7 +21,7 @@
             Level = 1;
             Money = 0;
             PerClickDamage = 10;
-            PerSecondDamage = 10;
+            PerSecondDamage = 100;
             DamageMultiplier = 1;
             Floor = 1;
             MonsterCount = 0;

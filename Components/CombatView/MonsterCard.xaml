@@ -37,7 +37,25 @@
                          HeightRequest="30"
                          WidthRequest="100"
                          ScaleY="3"
-                         ProgressColor="Red"/>
+                         ProgressColor="Red" />
+        </VerticalStackLayout>
+
+        <VerticalStackLayout Spacing="1"
+                             Margin="5"
+                             IsVisible="{Binding IsBoss}">
+            <HorizontalStackLayout HorizontalOptions="Center"
+                                   Spacing="3">
+                <Label HorizontalTextAlignment="Center">Time remaining:</Label>
+                <Label HorizontalTextAlignment="Center"
+                       Text="{Binding RemainingBossTime}"
+                       TextColor="Red" />
+                <Label HorizontalTextAlignment="Center">Seconds</Label>
+            </HorizontalStackLayout>
+            <ProgressBar Progress="{Binding RemainingBossTimeProgress}"
+                         HeightRequest="30"
+                         WidthRequest="100"
+                         ScaleY="3"
+                         ProgressColor="Red" />
         </VerticalStackLayout>
     </VerticalStackLayout>
 </ContentView>

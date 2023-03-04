@@ -13,7 +13,7 @@
         {
             MonsterVisible = true;
             CurrentMonsterHP = 100;
-            TotalMonsterCount = 1;
+            TotalMonsterCount = 15;
             BaseMonsterHP = 1.02;
             SetMonsterHP();
             MonsterAvatar = SetRandomMonsterAvatar();
