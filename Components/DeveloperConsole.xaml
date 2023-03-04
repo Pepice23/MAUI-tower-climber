@@ -36,7 +36,7 @@
                              Grid.Row="0"
                              Grid.Column="1">
             <Label HorizontalTextAlignment="Center">Total Monster Count:</Label>
-            <Label HorizontalTextAlignment="Center">1</Label>
+            <Label HorizontalTextAlignment="Center" Text="{Binding TotalMonsterCount}" />
         </VerticalStackLayout>
 
         <VerticalStackLayout Margin="10"
