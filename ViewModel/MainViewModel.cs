@@ -60,17 +60,17 @@ namespace MAUI_tower_climber.ViewModel
         int playerDamagePerClick = 1;
 
         [ObservableProperty]
-        int playerDamagePerSecond = 1;
+        int playerDamagePerSecond;  
 
         //Players XP & Progress Bar
         [ObservableProperty]
-        int currentXP = 1;
+        int currentXP;
 
         [ObservableProperty]
-        int maxXP = 10;
+        int maxXP;
 
         [ObservableProperty]
-        double playerXpProgress = 0;
+        double playerXpProgress;
 
         // Background Picture
         [ObservableProperty]
@@ -78,7 +78,7 @@ namespace MAUI_tower_climber.ViewModel
 
         //Player Money
         [ObservableProperty]
-        int playerMoney = 0;
+        int playerMoney;
 
         [RelayCommand]
         void SetPlayer()
@@ -101,33 +101,33 @@ namespace MAUI_tower_climber.ViewModel
         [ObservableProperty]
         string monsterAvatar = string.Empty;
 
-        // Monster Level
-        [ObservableProperty]
-        int monsterLevel = 1;
-
         // Monster HP
         [ObservableProperty]
-        int monsterCurrentHP = 1;
+        int monsterCurrentHP;
 
         [ObservableProperty]
-        int monsterMaxHP = 100;
+        int monsterMaxHP;
 
         [ObservableProperty]
-        double monsterHPProgress = 0;
+        double monsterHPProgress;
 
         [ObservableProperty]
         string outcome = string.Empty;
 
         [RelayCommand]
-        void setMonster()
+        void SetMonster()
         {
-            MonsterVisible = monster.MonsterVisible;
-            MonsterLevel = player.Floor;
+            MonsterVisible = true;
             MonsterAvatar = monster.SetRandomMonsterAvatar();
-            MonsterCurrentHP = monster.CurrentMonsterHP;
-            MonsterMaxHP = monster.MonsterMaxHP;
+            SetMonsterHP();
             MonsterHPProgress = (double)MonsterCurrentHP / MonsterMaxHP;
             RemainingBossTime = MaxBossTime;
+        }
+
+        void SetMonsterHP()
+        {
+            MonsterMaxHP = (int)(Math.Pow(monster.BaseMonsterHP, TotalMonsterCount) * 100);
+            MonsterCurrentHP = MonsterMaxHP;
         }
 
         void AddFloor()
@@ -174,7 +174,7 @@ namespace MAUI_tower_climber.ViewModel
                         PlayerLoses();
                     }
                 }
-                setMonster();
+                SetMonster();
             }
             if (FloorMonsterCount < 15)
             {
@@ -191,7 +191,7 @@ namespace MAUI_tower_climber.ViewModel
                         PlayerWins();
                     }
                 }
-                setMonster();
+                SetMonster();
                 if (IsBattleStarted)
                 {
                     StartBattle();
