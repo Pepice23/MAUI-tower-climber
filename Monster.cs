@@ -7,7 +7,7 @@
         public string MonsterAvatar;
         public bool MonsterVisible;
         public int TotalMonsterCount;
-        double BaseMonsterHP;
+        public readonly double BaseMonsterHP;
 
         public Monster()
         {
