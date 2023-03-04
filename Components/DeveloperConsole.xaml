@@ -48,7 +48,7 @@
                 <Button Text="Load Player"
                         Command="{Binding SetPlayerCommand}"></Button>
                 <Button Text="Load Monster"
-                        Command="{Binding setMonsterCommand}"></Button>
+                        Command="{Binding SetMonsterCommand}"></Button>
             </HorizontalStackLayout>
             <HorizontalStackLayout Spacing="5"
                                    HorizontalOptions="Center">
