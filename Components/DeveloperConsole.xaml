@@ -46,16 +46,16 @@
             <HorizontalStackLayout Spacing="5"
                                    HorizontalOptions="Center">
                 <Button Text="Load Player"
-                        Command="{Binding SetPlayerCommand}"></Button>
+                        Command="{Binding SetPlayerCommand}" />
                 <Button Text="Load Monster"
-                        Command="{Binding SetMonsterCommand}"></Button>
+                        Command="{Binding SetMonsterCommand}" />
             </HorizontalStackLayout>
             <HorizontalStackLayout Spacing="5"
                                    HorizontalOptions="Center">
                 <Button Text="Start Battle"
                         Command="{Binding StartBattleCommand}" />
                 <Button Text="Stop Battle"
-                        Command="{Binding StopTimerCommand}"></Button>
+                        Command="{Binding StopTimerCommand}" />
             </HorizontalStackLayout>
         </VerticalStackLayout>
     </Grid>
