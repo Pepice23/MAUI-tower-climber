@@ -2,7 +2,7 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MAUI_tower_climber.Components.Equipment.PlayerEquipment">
-    <HorizontalStackLayout HorizontalOptions="Center"
+    <VerticalStackLayout HorizontalOptions="Center"
                            Spacing="10">
         <Label HorizontalTextAlignment="Center"
                FontSize="Large">Equipment</Label>
@@ -69,5 +69,5 @@
                 </VerticalStackLayout>
             </HorizontalStackLayout>
         </Frame>
-    </HorizontalStackLayout>
+    </VerticalStackLayout>
 </ContentView>

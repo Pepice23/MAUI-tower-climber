@@ -9,11 +9,39 @@
              x:DataType="viewModel:MainViewModel">
 
 
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
 
-    <VerticalStackLayout>
+        <components:DeveloperConsole  Grid.Row="0" />
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Image Aspect="AspectFit"
+                   Source="{Binding BackgroundPicture}"></Image>
+            <components:StageDisplay Grid.Row="0" />
+            <combatView:Battleground Grid.Row="1" />
+            <components:AttackButton Grid.Row="2" />
+        </Grid>
+        <equipment:EquipmentInfo Grid.Row="2"/>
+    </Grid>
+
+
+
+
+
+    <!--<VerticalStackLayout>
         <components:DeveloperConsole />
         <Grid>
-            <!--<Image Aspect="AspectFit" Source="{Binding BackgroundPicture}"></Image>-->
+            -->
+    <!--<Image Aspect="AspectFit" Source="{Binding BackgroundPicture}"></Image>-->
+    <!--
             <VerticalStackLayout>
                 <components:StageDisplay />
                 <combatView:Battleground />
@@ -22,7 +50,7 @@
         </Grid>
         <equipment:EquipmentInfo />
 
-    </VerticalStackLayout>
+    </VerticalStackLayout>-->
 
 
 </ContentPage>
