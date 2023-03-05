@@ -3,15 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:components="clr-namespace:MAUI_tower_climber.Components"
              xmlns:combatView="using:MAUI_tower_climber.Components.CombatView"
+             xmlns:equipment="clr-namespace:MAUI_tower_climber.Components.Equipment"
              x:Class="MAUI_tower_climber.MainPage"
              xmlns:viewModel="clr-namespace:MAUI_tower_climber.ViewModel"
-             x:DataType="viewModel:MainViewModel"
-             >
+             x:DataType="viewModel:MainViewModel">
 
 
-    
-        <VerticalStackLayout>
-            <components:DeveloperConsole />
+
+    <VerticalStackLayout>
+        <components:DeveloperConsole />
         <Grid>
             <!--<Image Aspect="AspectFit" Source="{Binding BackgroundPicture}"></Image>-->
             <VerticalStackLayout>
@@ -20,8 +20,9 @@
                 <components:AttackButton />
             </VerticalStackLayout>
         </Grid>
-            
+        <equipment:EquipmentInfo />
+
     </VerticalStackLayout>
-    
-    
+
+
 </ContentPage>

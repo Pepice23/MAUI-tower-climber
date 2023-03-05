@@ -177,6 +177,9 @@
 	  <MauiXaml Update="Components\DeveloperConsole.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Components\Equipment\EquipmentInfo.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Components\StageDisplay.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
